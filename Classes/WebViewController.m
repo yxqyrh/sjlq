@@ -22,19 +22,21 @@
     rect.origin.y = rect.origin.y + 20;
     rect.size.height = rect.size.height - 20 - 44;
     self.webView = [[UIWebView alloc] initWithFrame:rect];
-    NSString *userAgent = [self.webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-    NSString *customUserAgent;
-    if ([userAgent rangeOfString:@"lqshapp"].length > 0) {
-        customUserAgent = [userAgent stringByAppendingFormat:@" %@",@""];
-        customUserAgent = @"lqshapp";
-    }
-    else {
-        customUserAgent = [userAgent stringByAppendingFormat:@" %@",@"lqshapp"];
+    if (self.isNeedResetAgent) {
+        NSString *userAgent = [self.webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+        NSString *customUserAgent;
+        if ([userAgent rangeOfString:@"lqshapp"].length > 0) {
+            customUserAgent = [userAgent stringByAppendingFormat:@" %@",@""];
+            customUserAgent = @"lqshapp";
+        }
+        else {
+            customUserAgent = [userAgent stringByAppendingFormat:@" %@",@"lqshapp"];
+            
+            customUserAgent = @"lqshapp";
+        }
         
-        customUserAgent = @"lqshapp";
+        [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":customUserAgent}];
     }
-
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":customUserAgent}];
     
     [self.view addSubview:self.webView];
 //   

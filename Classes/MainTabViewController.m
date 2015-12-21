@@ -36,26 +36,31 @@
     webViewController1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"sy"] tag:1];
     [webViewController1 setUrl:@"http://www.99tx.com/wap/"];
     webViewController1.isNeedRefresh = false;
+    webViewController1.isNeedResetAgent = true;
     
     WebViewController *webViewController2 = [StoryboadUtil getViewController:@"Main" :@"WebViewController"];
     webViewController2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"逛街" image:[UIImage imageNamed:@"gj"] tag:1];
     [webViewController2 setUrl:@"http://www.99tx.com/wap/special.html?special_id=4"];
     webViewController2.isNeedRefresh = false;
+    webViewController1.isNeedResetAgent = true;
     
     WebViewController *webViewController3 = [StoryboadUtil getViewController:@"Main" :@"WebViewController"];
     webViewController3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"客服" image:[UIImage imageNamed:@"kf"] tag:1];
     [webViewController3 setUrl:@"http://wpa.qq.com/msgrd?v=3&uin=909972273&site=qq&menu=yes"];
     webViewController3.isNeedRefresh = true;
+    webViewController1.isNeedResetAgent = false;
     
     WebViewController *webViewController4 = [StoryboadUtil getViewController:@"Main" :@"WebViewController"];
     webViewController4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"购物车" image:[UIImage imageNamed:@"gwc"] tag:1];
     [webViewController4 setUrl:@"http://www.99tx.com/wap/tmpl/cart_list.html"];
     webViewController4.isNeedRefresh = true;
+    webViewController1.isNeedResetAgent = true;
     
     WebViewController *webViewController5 = [StoryboadUtil getViewController:@"Main" :@"WebViewController"];
     webViewController5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"个人中心" image:[UIImage imageNamed:@"ren"] tag:1];
     [webViewController5 setUrl:@"http://www.99tx.com/wap/tmpl/member/member.html?act=member"];
     webViewController5.isNeedRefresh = true;
+    webViewController1.isNeedResetAgent = true;
     
     self.viewControllers = [NSArray arrayWithObjects:webViewController1,webViewController2,webViewController3,webViewController4,webViewController5, nil];
 }

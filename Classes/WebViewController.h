@@ -23,6 +23,8 @@
 
 @property (nonatomic) bool isNeedRefresh;
 
+@property (nonatomic) bool isNeedResetAgent;
+
 -(void)setTitle:(NSString *)title andUrl:(NSString *)url;
 
 
